@@ -13,19 +13,16 @@ variable "location_id" {
 variable "auth_domain" {
   description = "The domain to authenticate users with when using App Engine's User API."
   type        = string
-  default     = ""
 }
 
 variable "split_health_checks" {
   description = " Set to false to use the legacy health check instead of the readiness and liveness checks."
   type        = bool
-  default     = false
 }
 
 variable "oauth2_client_id" {
   description = "OAuth2 client ID to use for the authentication flow."
   type        = string
-  default     = ""
 }
 
 variable "oauth2_client_secret" {
