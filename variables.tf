@@ -10,11 +10,6 @@ variable "location_id" {
   type        = string
 }
 
-variable "auth_domain" {
-  description = "The domain to authenticate users with when using App Engine's User API."
-  type        = string
-}
-
 variable "split_health_checks" {
   description = " Set to false to use the legacy health check instead of the readiness and liveness checks."
   type        = bool
@@ -42,6 +37,13 @@ variable "source_range" {
 }
 
 //optional variables
+
+
+variable "auth_domain" {
+  description = "The domain to authenticate users with when using App Engine's User API."
+  type        = string
+  default     = ".com"
+}
 
 variable "database_type" {
   description = "The type of the Cloud Firestore or Cloud"
