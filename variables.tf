@@ -6,12 +6,59 @@ variable "project" {
 }
 
 variable "location_id" {
-  description = "The location to serve the app from."
+  description =  <<-EOT
+    {
+   "type": "api",
+   "purpose": "autocomplete",
+   "data":[ "asia-east1",
+        "asia-east2",
+        "asia-northeast1",
+        "asia-northeast2",
+        "asia-northeast3",
+        "asia-south1",
+        "asia-south2",
+        "asia-southeast1",
+        "asia-southeast2",
+        "australia-southeast1",
+        "australia-southeast2",
+        "europe-central2",
+        "europe-north1",
+        "europe-west1",
+        "europe-west2",
+        "europe-west3",
+        "europe-west4",
+        "europe-west6",
+        "northamerica-northeast1",
+        "northamerica-northeast2",
+        "southamerica-east1",
+        "southamerica-west1",
+        "us-central1",
+        "us-east1",
+        "us-east4",
+        "us-west1",
+        "us-west2",
+        "us-west3",
+        "us-west4"
+    ],
+   "description": "The location to serve the app from."
+}
+  EOT
   type        = string
 }
 
 variable "split_health_checks" {
-  description = " Set to false to use the legacy health check instead of the readiness and liveness checks."
+  description = <<-EOT
+  {
+   "type": "bool",
+   "purpose": "autocomplete",
+   "data": [
+  "true",
+  "false"
+   ],
+   "default":true
+   "description":"Set to false to use the legacy health check instead of the readiness and liveness checks."
+}
+EOT 
   type        = bool
 }
 
@@ -46,11 +93,19 @@ variable "auth_domain" {
 }
 
 variable "database_type" {
-  description = "The type of the Cloud Firestore or Cloud"
+  description = <<-EOT
+  {
+   "type": "json",
+   "purpose": "autocomplete",
+   "data": [  "CLOUD_FIRESTORE",
+              "CLOUD_DATASTORE_COMPATIBILITY"
+   ],
+   "description": "The type of the Cloud Firestore or Cloud"
+}
+EOT 
   type        = string
   default     = "CLOUD_DATASTORE"
 }
-
 variable "serving_status" {
   description = "The serving status of the app."
   type        = string
