@@ -8,7 +8,7 @@ variable "project" {
 variable "location_id" {
   description =  <<-EOT
     {
-   "type": "api",
+   "type": "json",
    "purpose": "autocomplete",
    "data":[ "asia-east1",
         "asia-east2",
@@ -49,13 +49,13 @@ variable "location_id" {
 variable "split_health_checks" {
   description = <<-EOT
   {
-   "type": "bool",
+   "type": "json",
    "purpose": "autocomplete",
    "data": [
-  "true",
-  "false"
+        "true",
+        "false"
    ],
-   "default":true
+   "default":true,
    "description":"Set to false to use the legacy health check instead of the readiness and liveness checks."
 }
 EOT 
@@ -74,12 +74,12 @@ variable "oauth2_client_secret" {
 }
 
 variable "action" {
-  description = "IP address or range, defined using CIDR notation, of requests that this rule applies to."
+  description = "The action to take if this rule matches."
   type        = string
 }
 
 variable "source_range" {
-  description = "The action to take if this rule matches."
+  description = "IP address or range, defined using CIDR notation, of requests that this rule applies to."
   type        = string
 }
 
